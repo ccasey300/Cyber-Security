@@ -1,0 +1,27 @@
+			Skill Gaps:
+
+	Cybersecurity:
+* SCompTIA Security+, foot in the door. A+ is another.
+* CEH, Certified Ethical Hacker, entry.
+
+* OSCP, Offensive Security Certified Professional, advanced pentesting
+* Certified Information Security Manager (CISM), leadership roles.
+* Certified Cloud Security Professional (CCSP)
+
+Revision:
+* OSI odel, TCP/IP, networking fundamentals.
+* Operating Systems, Linux, Winows.
+* Python, C, Bash, Powershell.
+
+
+
+	Finance:
+
+
+
+
+	AI/ML:
+
+
+
+
