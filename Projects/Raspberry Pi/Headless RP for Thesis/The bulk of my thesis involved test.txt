@@ -1,0 +1,1 @@
+The bulk of my thesis involved testing network manipulation using OONI, (Open Observatory for Network Interference) to run tests for blocked websites, middleboxes, performance etc. I elected to use a headless Raspberry Pi over SSH to do this. 
