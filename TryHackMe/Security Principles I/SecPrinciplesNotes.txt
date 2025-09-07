@@ -1,0 +1,58 @@
+    Assessing if secure: (CIA)
+Confidentiality: Only intended person(s) can access data.
+Integrity: Ensure data can't be altered. If altered, should be detected.
+Availability: System or service available when needed.
+
+* Further, consider authenticity (ensure claimed source) and nonrepudiation (original source cannot deny ownership of data/doc/file)
+
+    How attacks happen:
+Disclosure: Attack on confidentiality
+Alteration: Opposite of integrity.
+Destruction/Denial: Attack on availability.
+
+
+Using security models, we can provide necessary guarantees. 
+
+    Bell-LaPadula Model
+Achieves confidentiality using three rules:
+* Simple Security Property: Subject at a lower security level cannot read an object at a higher security level. Known as "No read up."
+* Star Security Property: Subject at a higher security level cannot write to an object at a lower security. Known as "No write down." 
+* Discretionary-Security Property: Uses an access matrix to allow read/write operations.
+* Works well in military due to vetting.
+
+    The Biba Integrity Model
+"No write up, no read down"
+* Subjects may write to objects at or below their level.
+* Subjects may read objects above their level.
+* Biba is good when integrity is more important than confidentiality.
+
+
+
+    The Clark-Wilson Model
+
+
+Threat Modelling
+    The threat modelling process is very similar to a risk assessment made in workplaces for employees and customers. The principles all return to:
+
+    * Preparation
+    * Identification
+    * Mitigations
+    * Review
+
+Frameworks that help model threats:
+STRIDE (Spoofing identity, Tampering with data, Repudiation threats, Information disclosure, Denial of Service and Elevation of privileges) 
+PASTA (Process for Attack Simulation and Threat Analysis
+
+Incident Response Phases:
+Preparation	
+    Do we have the resources and plans in place to deal with the security incident?
+Identification	
+    Has the threat and the threat actor been correctly identified in order for us to respond to?
+Containment	
+    Can the threat/security incident be contained to prevent other systems or users from being impacted?
+Eradication	
+    Remove the active threat.
+Recovery 	
+    Perform a full review of the impacted systems to return to business as usual operations.
+Lessons Learned	
+    What can be learnt from the incident? I.e. if it was due to a phishing email, employees should be trained better to detect phishing emails.
