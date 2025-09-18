@@ -1,0 +1,12 @@
+Apache/2.4.41 (Ubuntu) Server at 10.10.243.107 Port 80
+
+FUFF:
+.htpasswd               [Status: 403, Size: 278, Words: 20, Lines: 10]
+:: Progress: [1070/4655] :: Job [1/1] :: 0 req/sec :: Duration: [0:00:00] :: Err:: Progress: [1115/4655] :: Job [1/1] :: 0 req/sec :: Duration: [0:00:00] :: Err.htaccess               [Status: 403, Size: 278, Words: 20, Lines: 10]
+:: Progress: [2104/4655] :: Job [1/1] :: 0 req/sec :: Duration: [0:00:00] :: Err.hta                    [Status: 403, Size: 278, Words: 20, Lines: 10]
+:: Progress: [2125/4655] :: Job [1/1] :: 0 req/sec :: Duration: [0:00:00] :: Err:: Progress: [2129/4655] :: Job [1/1] :: 0 req/sec :: Duration: [0:00:00] :: Errimages                  [Status: 301, Size: 315, Words: 20, Lines: 10]
+:: Progress: [2136/4655] :: Job [1/1] :: 0 req/sec :: Duration: [0:00:00] :: Errindex.html              [Status: 200, Size: 8686, Words: 1334, Lines: 151]
+:: Progress: [2169/4655] :: Job [1/1] :: 0 req/sec :: Duration: [0:00:00] :: Err:: Progress: [3061/4655] :: Job [1/1] :: 0 req/sec :: Duration: [0:00:00] :: Errserver-status           [Status: 403, Size: 278, Words: 20, Lines: 10]
+:: Progress: [3670/4655] :: Job [1/1] :: 0 req/sec :: Duration: [0:00:00] :: Err:: Progress: [4090/4655] :: Job [1/1] :: 0 req/sec :: Duration: [0:00:00] :: Err:: Progress: [4655/4655] :: Job [1/1] :: 0 req/sec :: Duration: [0:00:00] :: Err:: Progress: [4655/4655] :: Job [1/1] :: 40 req/sec :: Duration: [0:00:04] :: Errors: 0 ::
+root@ip-10-10-250-102:~# 
+
