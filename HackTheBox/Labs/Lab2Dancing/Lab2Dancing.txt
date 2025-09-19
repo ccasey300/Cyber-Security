@@ -1,0 +1,15 @@
+Dancing Lab: (Server Message Block Protocol)
+    TARGET IP: 10.129.11.59
+    * Server Message Block protocol (SMB) allows transfer of files, usually on port 445 TCP
+    * Operates at application layer, hence needs lower level protocols for transport. 
+    * Typically NetBios over TCP/IP [NBT] for windows.
+    * An SMB-enabled storage is called a share.
+
+    * Clearly this requires authentication (edit, modify, see docs). Hence username and password.
+    * Misconfiguration can allow access without any credentials, or by guest accounts or anonymous log-ons
+    
+    Used:
+    ping IP
+    nmap IP
+    
+    (Linux)smbclient \\\\IP\\Share_name     Press enter to check if poorly configured.
