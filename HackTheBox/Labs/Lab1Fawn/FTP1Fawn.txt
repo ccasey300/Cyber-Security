@@ -1,0 +1,31 @@
+File Transfer Protocol Lab 1: (Fawn)
+    10.129.51.251
+
+    From wikipedia, FTP:
+        The File Transfer Protocol (FTP) is a standard communication protocol used to transfer
+        computer files from a server to a client on a computer network. FTP is built on a client–
+        server model architecture using separate control and data connections between the client
+        and the server. FTP users may authenticate themselves with a clear-text sign-in protocol,
+        generally in the form of a username and password. However, they can connect anonymously if
+        the server is configured to allow it. For secure transmission that protects the username
+        and password and encrypts the content, FTP is often secured with SSL/TLS (FTPS) or
+        replaced with SSH File Transfer Protocol (SFTP).
+    
+    * Typically port 21.
+    * FTP is plaintext, SFTP is encrypted (exntension of SSH).
+
+    Steps:
+    * Used ping 10.129.51.251 to make sure target is reachable.
+    * Tried     telnet 10.129.51.251    didn't work. 
+    * Tried     nmap -Pn 10.129.51.251  
+    * Used      nmap -vS 10.129.51.251  to get version of FTP.
+        Actually    ncat 10.129.51.251      Gave version... not sure why nmap didn't work.
+
+    * To access the FTP service, need to run ftp command on our own host.
+    * Use:  ftp 10.129.51.251
+    * Username:     anonymous
+    * Password: whatever! server disregards if configured to accept anonymous.
+    
+    * Next we used      ls              found flag.txt
+    * Get the file      get flag.txt    Transferred to local machine
+    035db21c881520061c53e0536e44f815
