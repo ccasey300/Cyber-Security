@@ -13,3 +13,7 @@ Dancing Lab: (Server Message Block Protocol)
     nmap IP
     
     (Linux)smbclient \\\\IP\\Share_name     Press enter to check if poorly configured.
+
+Verbose debug command: (Windows)
+
+    nmap -v -d -d -Pn IPADDR

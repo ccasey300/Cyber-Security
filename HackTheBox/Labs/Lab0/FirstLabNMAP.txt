@@ -5,3 +5,7 @@ First HTB lab: NMAP
     Installed telnet.
     Used: telnet {IP}
     logged into root and found flag
+
+    Verbose debug command: (Windows)
+
+    nmap -v -d -d -Pn IPADDR

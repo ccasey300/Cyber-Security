@@ -1,0 +1,4 @@
+Redeemer Lab3: Databases
+    Note! Verbose debug command: (Windows)
+        nmap -v -d -d -Pn 10.129.131.27
+    

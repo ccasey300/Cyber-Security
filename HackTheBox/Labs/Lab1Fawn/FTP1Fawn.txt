@@ -29,3 +29,7 @@ File Transfer Protocol Lab 1: (Fawn)
     * Next we used      ls              found flag.txt
     * Get the file      get flag.txt    Transferred to local machine
     035db21c881520061c53e0536e44f815
+
+    Verbose debug command: (Windows)
+
+    nmap -v -d -d -Pn IPADDR
