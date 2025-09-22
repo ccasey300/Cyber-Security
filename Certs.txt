@@ -1,0 +1,59 @@
+
+22/09/25
+	Tony Dunne Recommendations:
+		Short Term
+		* Join ISACA % ISC2								[Y]
+        * Finish THM junior pentester                   []
+		* Take ISC2 CC (free!)							[]
+
+		* Consider CompTIA PenTest+						[]
+
+
+		Medium Term
+		* Consider CCOA, CSX-P (ISACA)					[]
+		* Consider CISM, (ISACA)						[]
+		* After completing above, CISSP through ISC2	[]
+
+		Long Term
+		* AAISM (need CISSP & CISM)						[]
+
+
+    Details:
+        CC (ISACA) Info:    [Free, $50 maintenance annual]  [2-4 weeks]
+            A very hands-on, performance-based exam testing real cybersecurity practitioner skills. 
+            No multiple choice; you work through tasks in virtual machines. 
+            Covers Identify, Protect, Detect, Respond, Recover (the five core security functions)
+
+
+        Comptia+ Pentest    [4-8 weeks]  [$400]
+            A technical/offensive-security oriented cert. Covers penetration testing lifecycle: 
+            planning / scoping, reconnaissance, vulnerability scanning, exploiting, reporting, remediating. 
+            Mixture of performance and multiple-choice questions.
+
+
+        ISACA CSX-P    [6-10 weeks]  [$600]
+            A very hands-on, performance-based exam testing real cybersecurity practitioner skills. 
+            No multiple choice; you work through tasks in virtual machines. 
+            Covers Identify, Protect, Detect, Respond, Recover (the five core security functions)
+
+
+		CCOA Info:    []  [$500]
+			ISACA’s Certified Cybersecurity Operations Analyst™ (CCOA™) certification focuses on the 
+			technical skills to evaluate threats, identify vulnerabilities, and recommend countermeasures to 
+			prevent cyber incidents.
+
+			CCOA is administered through a hybrid exam that assesses a candidate’s knowledge and 
+			skills using a blend of traditional multiple-choice and performance-based questions.
+
+
+        CISSP (ISC2) Info:      [5 years exp]   [3-6 months]  [$750]
+            A globally recognized certification for experienced security professionals. Senior
+            Covers a broad range (“Common Body of Knowledge”) across eight domains, including security and 
+            risk management, asset security, security architecture & engineering, communications & network security,
+            identity & access management, security assessment & testing, security operations, software development security.
+
+
+		CISM Info:    [5 years experience]  [6-10 weeks]  [$575]
+			Certified Information Security Manager® (CISM®) affirms your ability to assess risks, implement effective 
+			governance, and proactively respond to incidents. With a highlight on emerging technologies such as AI 
+			and blockchain, it guarantees your skillset meets evolving security threats and industry requirements.
