@@ -1,0 +1,101 @@
+"Open Systems Interconnection (OSI) Model:"
+    * Framework that determines the various stages in which data is handled across a network.
+    * Dictates how all devices willsend, receive and interpret data.
+    * Devices can have different functions and designs on a network while communicating with other devices.
+    * At each layer, specific processes take place and data is appended, (Encapsulation).
+
+
+    "LAYER 1 | Physical Layer:"
+        * References physical componenets of hardware used in networking.
+        * Devices use electrical signal to send 'bits on the wire.'
+        * E.g ethernet cables.
+
+    "LAYER 2 | Data Link Layer:"
+        * Physical addressing of transmission. 
+        * Receives a packet from the network layer (3), includes IP, [adds MAC!]
+        * Inside every network-enabled device, network interface card that has associated MAC address.
+        * MAC is burnt into the card by manufacturer, permanent. Still, can be spoofed.
+        * Physical layer determines where exactly info needs to be sent.
+        * Represents data in a format suitable for transmission.
+
+
+    "LAYER 3 | Network Layer:"
+        * Where the magic routing and reassembly of data occurs. Small chunks->Reassembled Data
+        * Two protocols determine the optimal path data should take:
+            1.  Open Shortest Path First (OSPF)
+            2.  Routing Information Protocol (RIP)
+            -> They determine best path based on:
+                - Shortest path. Fewest number of hops.
+                - Most reliable path. Fewest packets dropped prev.
+                - Fastest physical connections. Copper slow, fibre fast.
+
+        ** [At this layer, everything is determined using ]
+        * Devices like routers, use IP addresses to deliver packets. Known as layer 3 devices.
+
+
+    "LAYER 4 | Transport Layer"
+        * There are two protocols used here to transmit data. 
+        * [User Datagram Protocol UDP] [Transmission Control Protocol]
+        
+        "TCP"
+            * Designed with reliability of transmission in mind. Comes with guarantees.
+            * Post 3-way handshake, reserves a constant connection between the devices until transmission complete.
+            * Incorporates error checking (checksums) to ensure data is received and in correct order.
+
+            Advantages of TCP                       Disadvantages of TCP
+
+            Guarantees the accuracy of data.
+	                                                Requires a reliable connection between the two devices. If one small chunk of data is not received, then the entire chunk of data cannot be used.
+
+            Capable of synchronising two devices to prevent each other from being flooded with data.
+            
+		                                            A slow connection can bottleneck another device as the connection will be reserved on the receiving computer the whole time.
+            Performs a lot more processes for reliability.
+
+	                                                TCP is significantly slower than UDP because more work has to be done by the devices using this protocol.
+
+            * TCP is used for file sharing, sending emails, internet browsing etc.
+            * This is due to these services requiring accurate and complete data.
+
+        "UDP"
+            * Not nearly as advanced as TCP. No error checking or reliability.
+            * Any data sent via UDP is sent to host regardless.
+            * No synchronisation between communicating hosts, no guarantees.
+
+            Advantages of UDP	                                Disadvantages of UDP
+            UDP is much faster than TCP.
+	                                                            UDP doesn't care if the data is received.
+
+            UDP leaves the application layer (user software) to decide if there is any control over how quickly packets are sent.
+            
+	                                                            It is quite flexible to software developers in this sense.
+
+            UDP does not reserve a continuous connection on a device as TCP does.
+
+	                                                            This means that unstable connections result in a terrible experience for the user.
+
+
+            * UDP is useful when data being sent is small.
+            * Examples: Video (pixelation is fine), ARP and DHCP discovering devices.
+
+    
+    "LAYER 5 | Session Layer:"
+        * Once data is correctly translated and formatted by the presentation layer (6):
+            Session layer (5) will create and maintain a connection between communicating hosts.
+        * Session layer is responsible for opening, also closing connection if it is lost or hasn't been used in a while.
+        * A session can include [CHECKPOINTS] where if data is lost, only newest data needs to be sent. Saves bandwidth.
+        * Sessions are unique, this means data can flow across a session but NOT BETWEEN SESSIONS.
+
+    
+    "LAYER 6 | Presentation Layer:"
+        * This is where standardisation starts. Data needs to be handled in the same way regardless of software.
+        * This layer acts as a translator for data to and from the Application layer (7).
+        * Security features like encryption (HTTPS) occur here.
+
+
+    "LAYER 7 | Application Layer:"
+        * Layer in which protocols and rules govern how the user will interact with data sent or received.
+        * Everyday apps like email clients, file server browsing software (FileZilla) provide a GUI (Graphical User Interface).
+        * GUI allows users to interact with data received or sent.
+        * DNS (Domain Name System), occur here. This is how domains are translated into IPs.
+        
