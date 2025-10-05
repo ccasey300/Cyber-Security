@@ -1,0 +1,40 @@
+"What is Networking?"
+    * Definition: 
+        "A system of two or more connected devices (computers, servers, peripherals, etc.), 
+        that communicate and share resources, data, information."
+    * The internet is a 'Network of networks.' Remember Postal systems for sending letters and parcels.
+
+"What is the Internet?"
+    * The first iteration of the Internet was within the ARPANET project in the late 1960s. Funded by the US Defense Dep.
+    * Tim Berners-Lee created the World Wide Web (WWW) in 1989.
+    * The small (e.g local) networks are called private networks.
+    * The larger infrastructure that connects them are public networks.
+
+"Identifying Hosts on a Network"
+    * To connect and maintain order, devices must be: 1. Identifying and 2. Identifiable.
+    * We use two identifiers for a host:
+        1. IP (Internet Protocol) address, changes.
+        2. MAC (Media Access Control) Address, hardware assigned identifier. (Fingerprint, somewhat permanent).
+
+    "IP ADDRESSES:"
+        * Used as a way to identify a host on a network for a period of time. 
+        * Four octets, longest prefix matching. 0-255.0-255.0-255.0-255
+        * IP addresses follow a set of protocols, backbone of networking, forces communication in a 'certain language.'
+        
+        Example: 2 devices on a private network. Both have a private IP address, share the same public IP.
+
+    "IP ADDRESS VERSIONS"
+        * Previously discussed IPv4 addressing scheme. It grants 2^32 IP addresses (4.29 billion).
+        * IPv6 on the other hand, supports up to 2^128 of IP addresses (340 trillion-plus).
+        * More efficient due to modern methodologies.
+
+    "MAC ADDRESSES:"
+        * Devices on a network have a physical network interface. Microchip found on the motherboard.
+        * MAC address is a twelve-character hexadecimal number. Pairs are separated by colons.
+        * INTERESTINGLY MAC addresses can be spoofed (faked).
+        * When a network device pretends to be another.
+
+    "PING, ICMP (Internet Control Message Protocol)"
+        * Ping uses ICMP packets to infer performance of a connection.
+        * Time taken is determined using ICMP echo and awaiting ICMP echo reply from target.
+        
