@@ -1,0 +1,100 @@
+"Extending Networks:"
+    * Learning about technologies used to extend networks out onto the internet.
+
+    "Port Forwarding:"
+        * Essential component in connecting applications or services to the internet.
+        * Without it, things like web servers would only be available on the network.
+        * Port forwarding opens specific ports.
+        * Firewalls determine if traffic can travel across these ports, even if ports are open by port forwarding.
+        * Routers configure port forwarding!
+
+    "Firewalls:"
+        * Network device reponsible for determining what traffic is allowed to enter and exit.
+        * Bases decision on a number of factors, such as:
+            Where the traffic is coming from?       (has the firewall been told to accept/deny traffic from a specific network?)
+            Where is the traffic going to?          (has the firewall been told to accept/deny traffic destined for a specific network?)
+            What port is the traffic for?           (has the firewall been told to accept/deny traffic destined for port 80 only?)
+            What protocol is the traffic using?     (has the firewall been told to accept/deny traffic that is UDP, TCP or both?)
+
+        * Firewalls perform packet inspection to determine these answers.
+        * Firewalls can be hardware or software. Example of software is Snort "https://www.snort.org/"
+        * There are two broad categories. Stateful and stateless.
+
+        Stateful	
+
+            [This type of firewall uses the entire information from a connection; rather than inspecting an individual packet, this firewall determines the behaviour of a device based upon the entire connection.]
+
+            [This firewall type consumes many resources in comparison to stateless firewalls as the decision making is dynamic. For example, a firewall could allow the first parts of a TCP handshake that would later fail.]
+
+            [If a connection from a host is bad, it will block the entire device.]
+
+
+        Stateless	
+
+            [This firewall type uses a static set of rules to determine whether or not individual packets are acceptable or not. For example, a device sending a bad packet will not necessarily mean that the entire device is then blocked.]
+            
+            [Whilst these firewalls use much fewer resources than alternatives, they are much dumber. For example, these firewalls are only effective as the rules that are defined within them. If a rule is not exactly matched, it is effectively useless.]
+
+            [However, these firewalls are great when receiving large amounts of traffic from a set of hosts (such as a Distributed Denial-of-Service attack)]
+
+        "Firewalls operate at the Network (3) & Transport (4) layers of the OSI model."
+
+
+    "Virtual Private Networks (VPN) Basics:"
+        * Allow two hosts to communicate via a dedicated, encrypted tunnel. 
+        * Devices connected this way form their own network!
+
+        "Benefits of VPNs:"
+        [
+            * Connects networks in different geographical locations
+
+            * Privacy and anonymity with encryption.
+                -> However, only as anonymous as the level of privacy granted by other devices on the network!
+                -> A VPN that logs history/ data is useless in this regard.
+        ]
+
+        "VPN Technologies:"
+            1.  PPP
+                [
+                    Used by PPTP (below) to allow encryption and authentication. 
+                    Similar to SSH, a private key and public certificate must match to connect.
+                    This technology is not capable of leaving the network by itself, non routable.
+                ]
+
+            2.  PPTP
+                [
+                    Point to Point Tunnelling Protocol.
+                    Allows data from PPP to travel and leave the network.
+                    Very easy to set up, supported by most devices.
+                    Weak encryption compared to other alternatives!
+                ]
+
+            3.  IPSec
+                [
+                    Internet Protocol Security encrypts data using existing Internet Protocol (IP) framework.
+                    Boasts strong encryption, supported by most devices.
+                    However, difficult to set up.
+                ]
+
+            
+    "LAN Networking Devices:"
+        [Routers]
+            * Connects networks and passes data between them using routing.
+            * Involves creating a path between networks so that data is successfully delivered.
+            * Network layer (3) devices. Often feature an interactive website/ console, allowing admin to configure rules.
+            * Routing is useful when there are many possible paths. We want the optimal path to be taken.
+
+        [Switches]
+            * Dedicated networking device that provides a means of connection to multiple hosts.
+            * Facilitate 3-63 devices using ethernet.
+            * Switches can operate at Data Link layer (2) and Network layer (3). 
+            * However, layer 2 switch cannot operate at layer 3, and vice-versa.
+            
+            * Layer 2 switches are solely responsible for sending frames to the correct host.
+            * Layer 3 switches send frames to devices AND route packets to other hosts using IP.
+
+        [VLAN]
+            * Virtual Local Area Network. Allows sets of hosts to be virtually split up.
+            * Allows for treating hosts differently depending on VLAN.
+            * Separation provides security. Rules in place determine how specific hosts can communicate with one another.
+            
