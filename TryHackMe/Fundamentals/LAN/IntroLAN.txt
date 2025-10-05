@@ -1,0 +1,97 @@
+"LAN (Local Area Network) Introduction:"
+    * Topology refers to the physical or logical arrangement of nodes and links, enabling the transfer of information.
+    
+    "STAR TOPOLOGY:"
+        * All devices are individually connected via a central networking device (hub or otherwise).
+        * Most commonly found, reliable and scalable but costly.
+        * Any info sent to a device is sent through the central device through which it connects.
+        * Scaling leads to increased maintenance cost, making troubleshooting more difficult.
+
+    "BUS TOPOLOGY:"
+        * Relies on a single connection, backbone cable. Devices are like leaves on a tree.
+        * Prone to becoming slow and bottlenecked if multiple devices sending simultaneously.
+        * Easy and cost effective to set up, troubleshooting is difficult though.
+        * Little redundancy in place in case of failures. Single point of failure.
+        
+    "RING TOPOLOGY:"
+        * Also known as token topology. Devices connected directly together to form a loop.
+        * Works by sending data across the loop until it reaches the destination.
+        * A device will only forward someone elses request if it DOESN'T have anything to send itself.
+        * Device sends its own data before forwarding other device's requests.
+        * Data flows in one direction. Easy to troubleshoot faults, however inefficient.
+        * Ring tops are less prone to bottlenecking. Large amounts of traffic are not travelling across network at a time.
+        * Entire network breaks if a link is broken.
+
+    "SWITCHES:"
+        * Dedicated devices within a network that aggregate multiple other devices.
+        * Uses ethernet to connect devices to switch ports. 4/8/16/24/32/64.
+        * Switches >> hubs or repeaters. Switches track devices connected to port.
+        * When a packet is received by switch, it can send to the correct port reaching the intended target.
+
+    "ROUTERS:"
+        * Routers connect networks and pass data between them. Does this by routing.
+        * Routing creates paths between networks to accommodate successful delivery.
+        * Very useful when devices are connected by many paths.
+
+    "A Primer on Subnetting:"
+        * Subnetting: Splitting a network into smaller sub networks.
+        * Network Administrators use subnetting to categorise and assign specific parts of a network to reflect this.
+        * Subnetting is achieved by splitting up the number of hosts that can fit in the network.
+        * Represented by a number called subnet mask.
+
+        [Similar to IP, subnets are represented as a number of 4 bytes (32 bits) ranging from 0-255]
+
+        * Subnets use IP addresses to:
+            1.  Identify the network address.
+            2.  Identify the host address.
+            3.  Identify the default gateway.
+
+        "Network Address" 
+            * This address identifies the start of the actual network and is used to identify a network's existence.
+            * For example, a device with the IP address of 192.168.1.100 will be on the network identified by 192.168.1.0
+                => 192.168.1.0
+        "Host Address"
+            * An IP address here is used to identify a device on the subnet
+            * For example, a device will have the network address of 192.168.1.1
+                => 192.168.1.100
+        "Default Gateway"
+            * The default gateway address is a special address assigned to a device on the network that is capable of sending information to another network 
+            * Any data that needs to go to a device that isn't on the same network (i.e. isn't on 192.168.1.0) will be sent to this device. These devices can use any host address but usually use either the first or last host address in a network (.1 or .254)
+                => 192.168.1.254
+
+        * On a home network, likely just one mask. (Unlikely to need more than 254 devices connected at one time).
+        * Subnetting provides: Efficiency, security and full control.
+
+        Example: Cafe uses one subnet for employees, cash registers, etc. Another for public access via hotspot.
+
+
+    "ARP: Address Resolution Protocol"
+        * Remember, two identifiers associated with a host: IP & MAC.
+        * ARP is reponsible for allowing devices to identify themselves on a network.
+        * ARP allows a device to associate its MAC address with an IP address.
+        * Each device will keep a log of MAC addresses associated with devices on network.
+        * When a device wants to communicate, sends ARP broadcast to all devices on network to find destined host.
+        
+        [ARP CACHE and ARP TABLE are interchangeable! However cache signifies a dynamic changing list.]
+
+        "How does it work?"
+        * Each device has a ledger called a CACHE that stores identifiers of devices on network.
+        * To map the two identifiers (IP & MAC), two types of messages are used:
+            1.  ARP broadcast.
+            2.  ARP reply.
+
+        [
+            * What is the MAC address that owns this IP?            Sent to all.
+            * This is the MAC address you want                      Sent only by device that knows.
+            * Thanks, I'll store it in ARP cache                    Stores mapping for future use.
+        ]
+
+    "DHCP: Dynamic Host Configuration Protocol"
+        * IP addresses can be entered manually, however usually done automatically by a DHCP server.
+        * When a device connects, if no IP manually set, sends a [DHCP Discover] to find DHCP servers on the network.
+        * DHCP server responds with [DHCP Offer], an IP address. 
+        * Device then sends a [DHCP Request] to accept the IP.
+        * Finally, DHCP server sends [DHCP ACK] to acknowledge.
+
+    
+    
