@@ -1,0 +1,76 @@
+"Domain Name System (DNS):"
+    * DNS is a simple solution that associates domain names with IP addresses.
+
+    "Domain Hierarchy:"
+
+    =>      admin.          tryhackme                       .com
+            [Sub-Domain]    [Second Level Domain]           [Top Level Domain]
+
+        [TOP LEVEL DOMAIN]
+            * The most righthand section of a domain. E,g .com, .ie
+            * Two types: "Generic Top Level (gTLD) and Coutnry Code Top Level (ccTLD)"
+            * Full list of over 2000 TLDs: "https://data.iana.org/TLD/tlds-alpha-by-domain.txt"
+
+        [SECOND-LEVEL DOMAIN]
+            * Left of the TLD. 
+            * Limited to 63 chars + TLD. Only alphanumeric and hyphens (-) allowed. 
+            Cannot start with '-', no consecutive '-'s.
+
+        [SUB DOMAIN]
+            * Left of the second level domain. Separated by a period.
+            * Same restrictions apply (alphanumeric, '-'s).
+            * Can use multiple subdomains. Example:
+                ->jupiter.servers.tryhackme.com
+                * HOWEVER, must be 253 chars or less
+            
+            * Unlimited number of subdomains for a given domain.
+
+    "DNS Record Types:"
+        * DNS is not just for websites!!
+        [A Record]
+            - Applies to IPv4 addresses. (104.26.10.229)
+        
+        [AAAA Record]
+            - Applies to IPv6 addresses. (2606:4700:20::681a:be5)
+
+        [CNAME Record]
+            - These resolve to another domain name. (store.tryhackme.com -->    shops.shopify.com)
+            - Another DNS request is made to resolve IP.
+
+        [MX Record]
+            - Resolve to the address of the servers that handle the email for the domain being queried.
+            - Example: MC record response for tryhackme.com -- alt1.aspmx.l.google.com
+            - These come with a priority flag. Tells client in which order to try servers, (in case main down).
+
+        [TXT Record]
+            - Any text based data can be stored in these fields.
+            - Many purposes, including:
+                * List servers who have authority to send email on behalf of domain. (Spam, email spoofing).
+                * Verify ownership of domain when signing up for 3rd party services.
+
+    
+    "Making a DNS Request:"
+        1.  Computer checks local cache. 
+            If domain hasn't been looked up recently, makes request to recursive DNS server.
+
+        2.  Usually provided by ISP, can use our own.
+            Contains a local cache. If contained, sent back to PC, request ends. (Popular sites).
+            Otherwise, moves onto the Internet's root DNS server.
+
+        3.  Root server is backbone of DNS. Redirects to the correct TLD server!
+            Recognises TLD (e.g .com) and refers to the correct TLD server that handles .com.
+
+        4.  TLD server holds records for where to find the authoritative server to answer DNS request.
+            Also known as the "Nameserver" for a domain! Often multiple nameservers for redundancy.
+            For example, the name server for tryhackme.com is kip.ns.cloudflare.com and uma.ns.cloudflare.com
+
+        5.  Authoritative DNS server is the server responsible for storing DNS records for a DOMAIN.
+            Where any updates to domain name DNS records would be made.
+            Depending on record type, DNS record will be forwarded to Recursive DNS server and stored in local cache.
+            DNS record then relayed to requesting client.
+
+        ** DNS records have a TTL (seconds) that defines how long they are stored locally.
+
+    [nslookup --type=TXT website.thm]                           Looks for TXT records for domain.
+    [nslookup --type=MX website.thm]                            Shows MX record, includes numerical priority.
+
