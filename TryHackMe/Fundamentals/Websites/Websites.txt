@@ -1,0 +1,128 @@
+"How Websites Work:"
+    * A web server is a dedicated computer that handles requests.
+    * Two major components make up website: 
+        1.  Front-end (Client side)     How a browser renders website.
+        2.  Back-end (Server side)      A server that processes request and gives response.
+
+    "HyperText Markup Language (HTML)"
+        * HTML helps define structure of a website.
+        * CSS makes websites pretty, adds styling options.
+        * JavaScript implements complex features on pages using interactivity
+
+        * HTML is the language websites are written in.
+        * [Elements] also known as tags, building blocks of HTML pages. Tells browser how to display.
+
+        "Examples of Elements:"
+            * The [<!DOCTYPE html>] defines that the page is a HTML5 document. This helps with standardisation across different browsers and tells the browser to use HTML5 to interpret the page.
+            * The [<html>] element is the root element of the HTML page - all other elements come after this element.
+            * The [<head>] element contains information about the page (such as the page title)
+            * The [<body>] element defines the HTML document's body; only content inside of the body is shown in the browser.
+            * The [<h1>] element defines a large heading
+            * The [<p>] element defines a paragraph
+            * There are many other elements (tags) used for different purposes. For example, there are tags for buttons (<button>), images (<img>), lists, and much more. 
+
+
+            [<p class="bold-text">]             This tag includes class attribute, used to style element
+            [<img src="img/cat.jpg">]           src attribute specify location of images.
+            [<p id="example">]                  Unique ID for an element, JS uses to reference it.
+
+            * Each element can have many attributes.
+        
+    "JAVASCRIPT:"
+        * One of the most popular coding languages, allows pages to become interactive.
+        * Controls functionality of web pages, without it pages would be static.
+        * JS can dynamically update a page in real time. E.g change button appearance when clicked, display animations.
+        * JS is added to page source using either:
+            [<script>]                  Tag to load JS
+            [<script src="/location/of/javascript_file.js"></script>]       Include remotely with src attribute
+
+        * "Onclick" or "onhover" events execute JS when that event happens.
+        Example:
+                    [<button onclick='document.getElementById("demo").innerHTML = "Button Clicked";'>Click Me!</button>]
+
+
+    "SENSITIVE DATA EXPOSURE:"
+        * Occurs when a website does not protect/ remove information stored in plaintext, visible in front-end source code.
+        * Example: HTML comments include test logins from development process
+
+
+    "HTML INJECTION:"
+        * Occurs when unfiltered user input is displayed on the page.
+        * If a website fails to sanitise user input, malicious code could be injected into website.
+        * HTML injection is client side (not manipulating a DB on the server, just the front end source).
+        * General rule: Never trust user input. Sanitise all input before it's used in JS.
+
+
+        "HTML INJECTION EXAMPLE:"
+            * We want to exploit 'name' input field to redirect to http://hacker.com
+            * [<a href="http://hacker.com"</a>]
+
+
+    "OTHER COMPONENTS OF WEBSITES:"
+        
+        [LOAD BALANCERS]
+            * When traffic is large or application needs high availability, consider hosting from >1 server.
+            * Load balancers do two things: ensure high traffic is handled & provides failover if server becomes unresponsive.
+            * When you request a website with a load balancer, load balancer receives request first and forwards to one of many servers.
+            * Load Balancer uses various algorithms to decide which server will best handle it.
+            * Example of algorithms:    [round-robin]       Sends to each server in turn.
+                                        [weighted]          Sends to least busy server after checking requests pile of each.
+
+            * [health check]        Periodic checks by load balancer on servers to ensure running correctly.
+
+        
+        [Content Discovery Networks (CDN)]
+            * Cuts down traffic to a busy network.
+            * Host static files from a website on thousands of servers across the world.
+            * When a request is made, CDN figures out the closest server is physically located.
+
+
+        [Databases]
+            * Webservers communicate with databases to store, modify, recall data from users.
+            * Examples include MySQL, MSSQL, MongoDB, Postgres, and more; each has its specific features.
+
+
+        [Web Application Firewalls]
+            * Sits between my web request and the server. Protects server from DOS and hacking.
+            * Analyses traffic for common attack techniques. Checks if bot.
+            * Also employs rate limiting to stop excessive requests from one IP.
+            * Request is dropped if satisfies any of these conditions. 
+            * Could employ block/ allow lists.
+
+
+    "How Webservers Work:"
+        * Software that listens for incoming connections and utilises HTTP to deliver web content to clients.
+        * Common examples include: Apache, Nginx, IIS and NodeJS
+        * Web server delivers files from its [root directory].
+        ** Nginx & Apache use /var/www/html in Linux operating systems, and IIS uses C:\inetpub\wwwroot for the Windows operating systems. 
+        
+        "Virtual Hosts:"
+            * Allows web server to host multiple websites with different domain names.
+            * Web server software checks the hostname being requested in HTTP header, matches from its virtual hosts.
+            * Virtual hosts are just text based config files.
+            * If no match is found, default website is displayed.
+            * No limit on number of these.
+            - For example, one.com being mapped to /var/www/website_one, and two.com being mapped to /var/www/website_two
+
+
+        "STATIC VS DYNAMIC CONTENT:"
+            * Static content never changes. Examples pictures, javascript, CSS, static HTML, etc.
+            * These files are served directly from the webserver with no changes made to them.
+
+            ** Dynamic content is changeable based on requests. Example is search page, depends on what input is given.
+            * These changes occur in backend with use of scripting and programming languages.
+            
+
+        "SCRIPTING AND BACKEND LANGUAGES:"
+            * Virtually no limit to what backend language can achieve. 
+            * This is what makes the website interactive to user.
+            [PHP, Python, Ruby, NodeJS, Perl, and more]
+
+            * These languages can interact with databases, call external services, process data from user, etc.
+
+            PHP Example:
+                [<html><body>Hello <?php echo $_GET["name"]; ?></body></html>]      How index.php built
+                [<html><body>Hello adam</body></html>]                              Client side output
+
+            "NOTE:" Client doesnt see the PHP because it is backend.
+                => Opens up lots of security issues for insecure web applications.

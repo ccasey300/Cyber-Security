@@ -1,0 +1,133 @@
+"Hyper Text Transfer Protocol:"
+    * Set of rules used to communicate with web servers for the transmitting of webpage data. HTML, images, etc.
+    "Hyper Text Transfer Protocol Secure (HTTPS):"
+        - Secure version of HTTP. Uses encryption, also allows authentication of web server, ensuring it's not an imposter.
+
+
+    "Requests and Responses:"
+        * URL (Uniform Resource Locator) is an instructor on accessing resources.
+        * Contains several sections:
+            1.  Scheme          Protocol used to access resource. [HTTP, HTTPS, FTP]
+            2.  User            Some servers require authentication to login. [user:password]
+            3.  Host            Domain or IP of server.
+            4.  Port            Port to connect to, usually 80 for HTTP and 443 for HTTPS.
+            5.  PATH            Filename or location to be accessed.
+            6.  Query String    Extra bits of info to be sent to requested path. For example, /blog?id=1.
+            7.  Fragment        Reference to a location on a page. Useful for long pages, (Documentation, often jumps to a particular section).
+
+        "Making a Request:"
+            * Simple one: GET / HTTP/1.1.
+            * However, likely need to send more headers for a more 'rich web experience.'
+                ->  [
+                    GET / HTTP/1.1
+
+                    Host: tryhackme.com
+                    User-Agent: Mozilla/5.0 Firefox/87.0
+                    Referer: https://tryhackme.com/
+
+                    ]
+                * Notes:    GET method, requests homepage, version 1.1
+                            Website we want
+                            Browser version and referred by
+                            "HTTP requests always end with a blank line! Tells server end of request."
+
+                        
+            "Example Response:"
+                    [
+                        HTTP/1.1 200 OK
+
+                        Server: nginx/1.15.8
+                        Date: Fri, 09 Apr 2021 13:34:03 GMT
+                        Content-Type: text/html
+                        Content-Length: 98
+
+
+                        <html>
+                        <head>
+                            <title>TryHackMe</title>
+                        </head>
+                        <body>
+                            Welcome To TryHackMe.com
+                        </body>
+                        </html>
+                    ]
+                    Notes:  Version, status code (200 is success)
+                            Web server software + version, date time timezone of webserver
+                            Content type, content length (confirms no data missing)
+                            Blank line! End of response
+                            After that is content
+
+    "HTTP METHODS:"
+        * [GET]         Gets information from server
+        * [POST]        Submits data to the server, potentially creates new records
+        * [PUT]         Submits data to the server that UPDATES information
+        * [DELETE]      Deletes information/ records from server
+
+    "HTTP STATUS CODES:"
+        * [100-199 - Information Response]
+                                                Not very common, used to say 'received first part, continue with request.'
+
+        * [200-299 - Success]
+                                                Successful request.
+        * [300-399 - Redirection]
+                                                Redirects request to another resource (diff webpage or potentially diff website)
+        * [400-499 - Client Errors]
+                                                Error with request.
+        * [500-599 - Server Errors]         
+                                                Server-side error, usually major problem with server handling of request.
+
+    "COMMON HTTP STATUS CODES:"
+        * [200 - OK]                    Successful completion of request
+        * [201 - Created]               Resource created
+        * [301 - Moved Permanently]     Redirects browser, web page moved elsewhere
+        * [302 - Found]                 Similar to 301, only temporary
+        * [400 - Bad Request]           Something wrong/ missing from request. (Parameter?)
+        * [401 - Not Authorised]        Cannot access this resource without authenticating.
+        * [403 - Forbidden]             Do not have permission to view resource, regardless of auth
+        * [405 - Method Not Allowed]    Doesn't allow this method. E.g POST not allowed, expected GET
+        * [404 - Page Not Found]        Doesn't exist
+        * [500 - Internal Service Error]    Server error, doesn't know how to handle request
+        * [503 - Service Unavailable]   Cannot handle request, either overloaded or down for maintenance.
+        Check out "https://http.cat/" for more info on status codes!
+
+
+
+
+    "HEADERS:"
+        * Additional bits of data sent with requests.
+        * Not strictly required, but difficult to view website without.
+
+        "COMMON REQUEST HEADERS"
+            * [Host]                    Some web servers host multiple websites, hence without specifying we will just get default.
+            * [User-Agent]              Browser software version, helps with formatting
+                                        Some elements of HTML, JavaScript and CSS are only available in certain browsers
+            * [Content-Length]          Tells webserver how much data to expect, ensures not missing.
+            * [Accept-Encoding]         What type of compression methods the browser supports, reduce bulky data 
+            * [Cookie]                  Session token, helps server remember your information.
+
+
+
+        "COMMON RESPONSE HEADERS"
+            * [Set-Cookie]              Info sent back to server to be stored after each web request.
+            * [Cache-Control]           How long to store content in browsers cache before it needs to be re requested.
+            * [Content-Type]            Tells client what to expect, browser knows how to process.
+                                        HTML, CSS, JavaScript, Images, PDF, Video, etc. 
+            * [Content-Encoding]        Method used to compress data for sending over internet.
+
+
+
+
+    "COOKIES:"
+        * Saved on computer when we receive a [Set-Cookie] response header from server.
+        * Every further request made, we include the cookie.
+        "HTTP IS STATELESS! DOES NOT REMEMBER PREVIOUS REQUESTS"
+        * Hence cookies help server remember who you are, been here before, etc.
+        
+        * Most commonly used for authentication purposes, many other uses though.
+        * Usually a token, some unique secret code that is not easily guessable.
+
+        "Viewing Cookies:"
+            - Open developer tools, network tab. This shows all of the resources requested by browser.
+            - Can click on these individually, view cookies.
+
+        
