@@ -1,0 +1,114 @@
+"Linux Fundamentals:"
+    Useful commands:
+
+        [echo]	            Output any text that we provide
+        [whoami]	        Find out what user we're currently logged in as!
+        [ls]                listing
+        [cd]                change directory
+        [cat] 	            concatenate
+        [pwd] 	            print working directory
+        [find -name file]   Searches cd for file
+        [*.txt]             Wildcard variable, e.g all txt files
+        [wc -l file]        Counts number of entries in file
+        [grep "THIS" file]  Finds "THIS" in file
+        
+    "Operator:"
+
+        [&]	                This operator allows you to run commands in the background of your terminal.
+        [&&]	            This operator allows you to combine multiple commands together in one line of your terminal.
+        [command1 && command2] 
+
+        [>]	                This operator is a redirector - meaning that we can take the output from a command (such as using cat to output a file) and direct it elsewhere.
+        [echo hey > welcome]    ...redirects hey to new file welcome
+                                IF WELCOME EXISTS IT IS OVERWRITTEN!
+        
+        [>>]	            This operator does the same function of the > operator but appends the output rather than replacing (meaning nothing is overwritten).
+                            Similar to above >, except it doesn't overwrite. Simply appends
+
+    "FLAGS & SWITCHES:"
+        [-a]                All flag, shows all
+        [--help]            This options provides brief description, options the command accepts etc.
+        [man COMMAND]       Shows the manual for a command/ application
+            [man ls]        Example to show manual for ls
+        
+        
+    "FILESYSTEM COMMANDS:"
+        [touch]	        touch	        Create file
+        [mkdir]	        make directory	Create a folder
+        [cp]	        copy	        Copy a file or folder
+        [mv]	        move	        Move a file or folder
+        [rm]	        remove	        Remove a file or folder
+        [file]	        file	        Determine the type of a file
+
+        [nano FILE]                     Open nano text editor, edit FILE
+        [vim FILE]                      Better text editor than nano.
+            "https://vim.rtorr.com/"    Vim cheatsheet 
+
+    "Permissions:"
+        [COMMAND -l]        Shows permissions of command
+                            3 possible options, [read write execute].
+
+        [su -l user1]       Changes user to user1, goes to home directory
+        [ls -l]             Shows list, includes owners and permissions for contents of cd
+
+
+    "COMMON DIRECTORIES:"
+        [/etc]              Root directory containing system files used by OS. [passwd & shadow] here
+        [/var]              Root dir containing data frequently accessed by services/ apps. [/var/log]
+        [/root]             Home for root user. 
+        [/tmp]              Stores volatile data that's only accessed once or twice. Cleared upon reboot.
+
+
+
+    "Transferring Files:"
+        [wget URL]                                          Download file from URL
+        [scp sourcefile user@IP_ADDR:/home/DESTINATION]     Send copy of file securely from source to dest.
+        
+        "Serving files from our host"
+            [python3 -m  http.server]                       Serves files from the directory its ran from
+            [wget httpIP_ADDR:PORT/file/dest]               Download the file from serving machine
+
+            => Unfortunately pythons webserver provides no way to index. Alternative:
+            "https://github.com/sc0tfree/updog"
+
+        
+
+    "PROCESSES:"
+        * [ps]              List running processes and their IDs, session running it, status code.
+        * [ps aux]          Shows processes running on other users.
+        * [top]             Gives real time stats, not a one time view like ps.
+        * [kill PID]        Kills process with PID
+        * [ps -p <PID>]     Show info on a specific process
+
+            Signals to add to kill:
+                    SIGTERM - Kill the process, but allow it to do some cleanup tasks beforehand
+                    SIGKILL - Kill the process - doesn't do any cleanup after the fact
+                    SIGSTOP - Stop/suspend a process
+
+        * [systemctl [option] [service]]            Interact with systemd process/daemon.
+        * [systemctl start apache2]                 Example, start apache2 server
+            OPTIONS:
+                [Start]
+                [Stop]
+                [Enable]
+                [Disable]
+        
+        "Processes can run in foreground or background"
+        * [CTR + Z] or [COMMAND &]                          Background the process
+        * [fg]                                              Bring back to foreground
+
+
+        "Cron Process and CRONTABS:"
+            * A crontab is a file with specific formatting, recognised by cron process.
+            * Executes each line step by step.
+            
+            CRONTABS require 6 values:
+                - [MIN]                     What minute to execute at
+                - [HOUR]                    What hour to execute at
+                - [DOM]                     Day of month to execute on
+                - [MON]                     Month to execute at
+                - [DOW]                     Day of week to execute 
+                - [CMD]                     Command that is executed
+
+            [crontab -e]                Edit crontabs, select an editor
+            
