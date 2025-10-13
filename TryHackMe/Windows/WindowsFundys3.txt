@@ -1,0 +1,57 @@
+"Windows Fundamentals 3:"
+
+    "Windows Updates:"
+        * Built-in Microsoft tools that help keep the device secure, such as Windows Updates, Windows Security, BitLocker, and more.
+        * [Windows Update]      Provides security updates and more for the OS and other MS products such as MS Defender.
+        [control /name Microsoft.WindowsUpdate]          Access windows update
+
+        * Since updates typically require reboot, users tend to push them off to a later date.
+
+
+    "Windows Security:"
+        * Home to manage tools that protect the device and its data.
+        Protection Areas:
+                Virus & threat protection
+                Firewall & network protection
+                App & browser control
+                Device security
+
+        Warning: Excluded items could contain threats that make your device vulnerable. Only use this option if you are 100% sure of what you are doing.
+
+        "Ransomware protection"
+            Controlled folder access -  Ransomware protection requires this feature to be enabled, 
+                                    which in turn requires Real-time protection to be enabled.
+
+            * Perform on deman scans on any file/ folder by right clicking, scan with Microsoft Defender.
+
+        "Firewall & Network Protection:"
+
+            * There are 3 firewall profiles offered by Windows Firewall:
+            1.  Domain - The domain profile applies to networks where the host system can authenticate to a domain controller. 
+            2.  Private - The private profile is a user-assigned profile and is used to designate private or home networks.
+            3.  Public - The default profile is the public profile, used to designate public networks such as Wi-Fi hotspots at coffee shops, airports, and other locations.
+
+            [WF.msc]            Command to open the Windows Defender Firewall
+
+        "App and Browser Control:"
+            * Microsoft Defender SmartScreen "protects against phishing or malware websites and applications, and the downloading of potentially malicious files".
+
+        "Device Security:"
+            * Trusted Platform Module (TPM) technology is designed to provide hardware-based, security-related functions.
+            * Memory Integrity - Prevents attacks from inserting malicious code into high-security processes.
+
+        "BitLocker:"
+            * Bitlocker drive encryption is a data protection feature that integrates with the OS.
+            * Addresses threats of data theft or exposure from lost/ recovered commissioned.
+
+
+        "Volume Shadow Copy Service:"
+            * Volume Shadow Copy Services (VSS) coordinates actions required to make a consistent shadow copy.
+            * Shadow copy/ Snapshot/ Point in time copy are stored in System Volume Information folder, within each drive that has protection enabled.
+
+            - With VSS enabled we can:
+                    [Create a restore point]
+                    [Perform system restore]
+                    [Configure restore settings]
+                    [Delete restore points]
+            

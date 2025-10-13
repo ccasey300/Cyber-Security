@@ -1,0 +1,67 @@
+"Windows Fundamentals 2:"
+
+    "System Configuration: MSConfig"
+        * System configuration utility. Advanced troubleshooting, helps diagnose startup issues primarily.
+        * "https://docs.microsoft.com/en-us/troubleshoot/windows-client/performance/system-configuration-utility-troubleshoot-configuration-errors"
+        * It includes 5 tabs:
+            1.  General:        Select services and devices to load upon boot.
+            2.  Boot:           Define various boot options.
+            3.  Services:       Lists all services, running or not. Service is a special application that runs in background.
+            4.  Startup:        Advises using Taskmgr
+            5.  Tools:          Various tools to configure operating system further.
+
+    "Change UAC Settings:"
+        * UAC settings can be changed or even disabled (not recommended).
+        * C:\Windows\System32\UserAccountControlSettings.exe
+
+    "Computer Management:"
+        * Has three primary sections. System Tools, Storage, Services and Applications.
+        
+        [System Tools]
+            * Task Scheduler:       Create and manage common, automated tasks.
+        
+        [Event Viewer]
+            * These records of events can be seen as an audit trail, can help understand the activity of the PC.
+            * Used to diagnose and rectify problems. There are 5 different types of events, see EventViewerTypes.png
+            * Also includes windows logs. See WindowsLogs.png for details
+            * Includes [Shared Folders] tab. Use this to view shares and who is accessing them.
+            
+            [Performance]       Perfmon used to view performance data either in real time or logs.
+            [Device Manager]    View and configure hardware.
+                * Within Device manager, disk management is a utility for advanced storage tasks:
+                    Set up a new drive, Extend a partition, Shrink a partition, Assign or change a drive letter (ex. E:) 
+
+            
+    "System Information Tool (msinfo32)"
+        * Gathers info about machine and displays a comprehensive view of hardware, system components, software environment.
+        * Use search bar.
+        [msinfo32.exe]
+
+
+    "Resource Monitor:"
+        * Per-process and aggregate CPU, memory, disk, and network usage information.
+        * Geared towards advanced users who need to perform troubleshooting.
+        * Includes 4 tabs. CPU, Disk, Network & Memory.
+        [resmon.exe]
+
+    "Command Prompt:"
+        [hostname]          Outputs computer name.
+        [whoami]            Logged in user.
+        [ipconfig]          Shows IP address info.
+        [ipconfig /all]     Show detailed IP address info.
+        [COMMAND /?]        Shows help for command.
+        [netstat]           Shows protocol stats & current TCCP/IP network connections.
+        [net help]          Help manual for network command.
+
+    "Registry Editor:"
+        * Central hierarchical DB used to store info necessary to configure the system for one or more users, applications, hardware devices.
+        * Contains information that windows continually references:
+                [Profiles for each user]
+                [Applications installed on the computer and the types of documents that each can create]
+                [Property sheet settings for folders and application icons]
+                [What hardware exists on the system]
+                [The ports that are being used.]
+
+        * Various ways to edit this registry, regedt32.exe.
+
+    

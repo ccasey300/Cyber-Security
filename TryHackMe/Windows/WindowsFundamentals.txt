@@ -1,0 +1,54 @@
+"Windows Fundamentals:"
+
+    "New Technology File System (NTFS):"
+        * New Technology File System (NTFS) is used in modern windows.
+        * Previously used FAT16, FAT32, HPFS.
+        * Still see FAT (File Allocation Table) used in USB devices.
+        * NTFS is a journaling file system, can automatically repair folders/files based on a log.
+        Pros:
+            - Encrypted.
+            - Supports files larger than 4Gb. 
+            - Allows for file/folder compression.
+            - Set specific permissions for files/ folders.
+
+        * On NTFS volumes, you can set the following permissions:
+            
+            [Full control]
+            [Modify]
+            [Read & Execute]
+            [List folder contents]
+            [Read]
+            [Write]
+
+        * To check permissions:
+            1. Go to properties.
+            2. Click securities tab.
+            3. Within Group or user names, select.
+
+        "NTFS also allows for Alternative Data Streams (ADS):"
+            * Every file has at least one Data Stream.
+            * Powershell can be used to view ADS for files.
+            * Has been used to hide malware!
+            "https://blog.malwarebytes.com/101/2015/07/introduction-to-alternate-data-streams/"
+
+
+    "Windows/ System32 Folders:"
+        * [C:\Windows]                          [%windir%]          Contains operating system. Here's its env variable.
+        * [C:\Windows\System32]                                     Important files critical to OS. BE CAREFUL! Read more:
+                                                                    "https://www.howtogeek.com/346997/what-is-the-system32-directory-and-why-you-shouldnt-delete-it/"
+
+
+
+    "Accounts, profiles and permissions:"
+        * Administrators can make changes to the system. (add users, delete users, modify groups, modify settings on the system, etc.)
+        * Regular user can only make changesto folders/files attributed to them. Cannot perform system level changes, such as installing programs.
+        
+        * To determine other users on the machine, simply look up other users from start menu. Add users will show more detail.
+
+    
+
+    "User Account Control:"
+        * UAC combats malware. In case of local admin, current session is not ran as admin! 
+        * Instead, ran as lower privilege user. If action requires admin, they are prompted.
+
+        
