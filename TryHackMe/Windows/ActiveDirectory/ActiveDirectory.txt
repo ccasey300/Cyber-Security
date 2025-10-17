@@ -1,0 +1,104 @@
+"Windows Active Directory:"
+    * Simplifies the management of devices and users in a corporate environment.
+    * To overcome problems with creating, configuring & maintaining users in large corporations:
+        "We use a Windows Domain"
+    
+        * [Windows Domain]      Group of users under administration for a given business.
+    Centralises the common components of a Windows computer network in a single repository "Active Directory."
+
+    ** The server that runs the Active Directory services is known as the "Domain Controller (DC)"
+    * Main advantages of having a configured Windows Domain:
+        1.  Centralised ID management:      All users in network can be configured from AD with minimal effort.
+        2.  Managing security policies:     Configure security policies from AD, apply to users and PCs across the network.
+
+    "Active Directory Domain Service:"
+        * Core of any windows domain.
+        * Acts as a catalogue for all objects on the network.
+        E.g  users, groups, machines, printers, shares
+
+        "Users:"
+            * V common, known as security principals due to ability to be authenticated by domain.
+            * Therefore can be assigned privs to act upon resources in the network.
+            
+            ** Users are either "Services" or "people."
+            * E.g  persons in the organisation 
+
+        "Machines:"
+            * Another type of obj within AD. 
+            * For every computer that joins the Active Directory Domain, new machine object created.
+            * Also considered security principles. They are local admins on the assigned computer.
+
+            * Generally, not supposed to be accessed by anyone except the computer itself.
+            * However, with user and password can be logged in.
+
+            => Machine Account passwords are automatically rotated out and are generally comprised of 120 random characters.
+
+            * Identify the machine by naming scheme. "Computer_Name" + "$"
+                => E.g  DC01 -->  DC01$
+
+        "User Groups:"
+            * Assign access rights to files or other resources to groups of users.
+            * Adding a user results in inheriting these privileges.
+
+                Security Group 	Description
+                Domain Admins 	Users of this group have administrative privileges over the entire domain. By default, they can administer any computer on the domain, including the DCs.
+                Server Operators 	Users in this group can administer Domain Controllers. They cannot change any administrative group memberships.
+                Backup Operators 	Users in this group are allowed to access any file, ignoring their permissions. They are used to perform backups of data on computers.
+                Account Operators 	Users in this group can create or modify other accounts in the domain.
+                Domain Users 	Includes all existing user accounts in the domain.
+                Domain Computers 	Includes all existing computers in the domain.
+                Domain Controllers 	Includes all existing DCs on the domain.
+
+        "Accessing Active Directory Users and Computers"
+            * To configure users, groups or machines in AD need to login to Domain Controller.
+            * Search [Active Directory Users and Computers]
+            
+            * Organizational Units (OUs) are containers used to classify users/machines.
+                Define users with similar policing requirements.
+                User can only be in one OU.
+
+            Worksflow:
+                [Search "Active Directory Users and Computers"]
+                -> Opens a hierarchy of users, computers etc. objs in the domain.
+
+            * Default Windows containers:
+            
+                Builtin: Contains default groups available to any Windows host.
+                Computers: Any machine joining the network will be put here by default. You can move them if needed.
+                Domain Controllers: Default OU that contains the DCs in your network.
+                Users: Default users and groups that apply to a domain-wide context.
+                Managed Service Accounts: Holds accounts used by services in your Windows domain.
+
+            * [OUs] good for applying policies to users and computers, which include specific configurations
+            * [Security Groups] are used to grant permissions over resources. 
+ 
+            
+        "Managing Users in Active Directory:"
+            * By default, OUs are protected from accidental deletion. 
+                ->View->Advanced Features
+
+            * Then, we can disable this protection and view additional containers.
+
+                "Delegation"
+                    * Giving certain users control over particular OUs.
+                    * Allows said users to perform advanced features without Domain Admin!
+                    E.g granting IT support the privileges to reset other low-privilege users' passwords.
+
+                    - Avoid typos by searching with 'find users'
+
+                "Managing Computers in AD"
+                    * By default, every device that connects (excl DCs) put in container [Computers]
+                    * Segregation tends to be based  on functionality:
+
+                        1.  Workstations
+                            => Devices used to perform every day browsing/tasks. 
+                            ** Should never have privileged user logged into them!
+
+                        2.  Servers
+                            => Used to provide services to users and other servers.
+
+                        3.  Domain Controllers
+                            => Allow management of Active Domain.
+                            ** These devices are sensitive. Contain hashed passwords for all user accounts!
+
+                    
