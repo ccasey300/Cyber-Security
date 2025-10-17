@@ -1,0 +1,38 @@
+"Security Analyst Intro:"
+    * Going to have to become a [Triage specialist.]
+    * [Triage]:  assessing, categorizing, and prioritizing security alerts, bugs, or incidents
+    
+    * What does a security analyst do:
+        - Monitor and investigate alerts (24x7 SOC operations environment)
+        - Configure and manage security tools.
+        - Develope and implement IDS (Intrusion Detection System) signatures.
+        - Create tickets and escalate the security incidents 
+
+    * Security Operations Center (SOC) follows a 3 tier model, alerts are escalated
+
+    [CompTIA Security+]     Desirable in this space!
+
+
+    "Security Operations Center:"
+        * Investigate, monitor, prevent and monitor threats around the clock.
+        
+        [Preparation & Prevention]
+            * Gathering intelligence on latest threats, actors and their TTPs (Tactics, Techniques & Procedures)
+            * Updating firewall signatures, patching vulnerabilities in existing systems.
+            * Block listing and safe listing applications, IPs, email addresses.
+
+            Example of TTP: Chinese Advanced Persistent Threat APT40
+                -> https://us-cert.cisa.gov/ncas/alerts/aa21-200a
+
+        [Monitoring & Investigation]
+            To monitor suspicious/maliciious network activity:
+                * An SOC team proactively uses SIEM (Security Information and Event Management).
+                * Also EDR (Endpoint Detection and Response).
+            * Security analysts prioritise alerts based on: low, med, high.
+
+            * Understanding how, when why:
+                 -> Drilling down on the data logs and alerts & using open source tools.
+
+        [Response]
+            * Taking action on compromised hosts, isolating these, terminating malicious processes, deleting files, etc.
+             IPS (Intrusion Prevention System) and IDS (Intrusion Detection System) 
