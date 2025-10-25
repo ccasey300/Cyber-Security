@@ -1,0 +1,93 @@
+"Pyramid of Pain:"
+    * Framework that categorises cyber threat indicators into six levels.
+    * These levels are based on difficulty for an adversary to change (IP easy... Tactics difficult).
+
+    1. Hash Values [trivial]
+        * Numeric value of fixed length that uniquely identifies data. result of a hashing fxn.
+        - MD5: Message Digest,https://www.ietf.org/rfc/rfc1321.txt
+            Cryptographically insecure, hash collision.
+
+        - SHA-1: Secure Hash Alg, produces a 160 bit hash value string as a 40 digit hex number.
+            Prone to brute force attacks.
+
+        - SHA-2: Designed by NIST. Most common is SHA-256. Produces a 256 bit hash as a 64 digit hexademical.
+
+        "A hash fxn is not cryptographically secure if two different files produce the same hash!"
+
+        "Tools to check Hashes:"
+            [VIRUS TOTAL]
+            https://www.virustotal.com/gui/
+            [Metadefender]
+            https://metadefender.opswat.com/?lang=en
+
+    [Problem]
+        - It is trivial to change the hash value. Adversary only needs to change a section of code.
+        
+    2. IP Address: [easy]
+        * Firewalling certain IP address blocks is common, drop block or deny inbound requests from there.
+        * However, it is easy for an adversary to change their IP.
+
+        [FAST FLUX]
+            * DNS technique used by bot nets to hide phishing, web proxying, malware behind compromised hosts (that act as proxies).
+            * The purpose of fast flux is to make the communication between malware and its C&C (Command and Control server) difficult to detect.
+            * HAVE MUTIPLE IP ADDR ASSOCIATED WITH A DOMAIN THAT IS CONSTANTLY CHANGING.
+
+    3.  Domain Names [simple, costs money]
+        * DNS is like a phonebook, mapping domains to IP addresses.
+        * Domains are simple to change, but costs money to register a domain. Unfortunately, DNS providers make it simple to change with APIs.
+
+        * One method used to imitate legitimate domains is to use PUNYCODE
+        [PUNY CODE]
+            * Way of converting words that cannot be written in ASCII, into a Unicode ASCII encoding.
+            Example: adıdas.de  which has the Punycode of  http://xn--addas-o4a.de/
+
+        * To detect malicious domains, proxy logs or web server logs can be used.
+        * Attackers hid malicious domains using URL shorteners. Examples of services like:
+        
+            "
+                bit.ly
+                goo.gl
+                ow.ly
+                s.id
+                smarturl.it
+                tiny.pl
+                tinyurl.com
+                x.co
+            "
+        * To see the actual website you're being redirected to, just append + to the end.
+
+        "Use any.run as a sandboxing service that executes the sample"
+            * https://any.run/
+
+    
+    4.  Host Artifacts [yellow, annoying]
+        * Traces or observables left on system. Adversary forced to change methodologies and attack tools.
+        * Examples of hsot artifacts: registry values, suspicious process execution, attack patterns, IOCs (Indicators of Compromise), files dropped by malicious process.
+
+
+    5.  Network Artifacts [yellow, annoying]
+        * Also requires significant effort from adversary to change. (Tools, methods)
+        * "A network artifact can be a user-agent string, C2 information, or URI patterns followed by the HTTP POST requests."
+        * [User Agent]  Request header field that contains info about the user agent originating the request. RFC2616
+        * Network artifacts are detected using Wireshark PCAPs. (Packet captures) Uses some network protocol analyser (TShark) or IDS logging from e.g Snort.
+
+        "Using TShark to filter user agent strings"
+        [tshark --Y http.request -T fields -e http.host -e http.user_agent -r analysis_file.pcap]
+        
+
+    6.  Tools [Annoying, costly]
+        * Attackers would need to build a new tool. Time consuming and costly
+        * Antivirus signatures, detection rules, and YARA rules are great weapons against attackers here!
+        * Share/view detection rules for latest CVEs using:
+            "https://tdm.socprime.com/"
+
+        [Fuzzy Hashing]
+            * Great tool for detection, "https://ssdeep-project.github.io/ssdeep/index.html"
+            * Matches two files with minor differences based on Fuzzy Hashes.
+            * Above, ssdeep uses "context triggered piecewise hashes (CTPH)" to identify very similiar files.
+
+
+    7.  TTPs (Techniques, Tactics, Procedures) [Difficult]
+        * MITRE https://attack.mitre.org/
+        * All the steps taken by an adversary to achieve goal, cradle to grave.
+        * If these are detected and responded to quickly, leaves adversaries little chance.
