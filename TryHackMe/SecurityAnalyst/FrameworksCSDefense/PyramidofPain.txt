@@ -91,3 +91,5 @@
         * MITRE https://attack.mitre.org/
         * All the steps taken by an adversary to achieve goal, cradle to grave.
         * If these are detected and responded to quickly, leaves adversaries little chance.
+
+    

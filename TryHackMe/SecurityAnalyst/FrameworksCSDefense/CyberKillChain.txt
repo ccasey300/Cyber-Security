@@ -1,0 +1,122 @@
+"Cyber Kill Chain:"
+    * Military concept related to the structure of an attack. Established by Lockheed Martin 2011.
+    [Attack Phases:]
+        Reconnaissance
+        Weaponization
+        Delivery
+        Exploitation
+        Installation
+        Command & Control
+        Actions on Objectives
+
+    1.  "Reconnaissance"
+        * Research and planning phase.
+        * OSInt is powerful.
+        [Active recon]
+            - Direct contact with target, social engineering, banner grabbing, port scanning and probing for active services.
+        [Passive recon]
+            - No direct interaction with target. WHOIS lookups, social media, data breaches.
+
+        "Email Harvesting"
+            1. theHarvester
+                https://github.com/laramies/theHarvester
+
+            => collects emails, names, subdomains, IPs and URLs from public sources.
+
+            2.  https://hunter.io/
+                Gathers emails related to a domain
+
+            3.  OSINT Framework:
+                https://osintframework.com/
+                Collection of tools
+
+
+    2.  "Weaponization:"
+        * Using research to craft malware and exploits into a payload.
+        [Malware]       Program that damages, disrupts or gives access to a machine.
+        [Exploit]       Code or programs that take advantage of some vulnerability or flaw in a machine.
+        [Payload]       Malicious code ran on the target.
+
+        [Typical attack chain]
+        >Create an infected document with malicious code contained in it. (E.g MS word)
+        >Create payload or sophisticated worm, load on USB drives and distribute.
+        >Setup command and control infrastructure (C2) to control victims machines.
+        >Install a backdoor to provide access, bypass security mechanisms.
+        >Tailor phishing templates or OAuth-consent apps to trick victims.
+
+        [Macros]
+            * Embedded, automated scripts in MS Office documents.
+
+        [Backdoors] 
+            * Method to bypass typical authentication requirements. 
+            * Can be hardcoded by developers or installed by adversary exploiting some vulnerability.
+            * Allows covert access. Also known as an access point.
+
+    3.  "Delivery:"
+        * Choosing method for transmitting payload onto victim machine.
+        Examples: Phishing emails, watering holes (website visited by targets), USB distribution.
+
+
+    4.  "Exploitation:"
+        * The moment an attackers code is ran on target, exploiting a known vulnerability.
+        [Malicious Macro execution]     E.g email, executes when target opens it.
+        [Zero day exploit]              Unknown exploit to developers, no opportunity for detection in beginning.
+        [Known CVEs]                    Public vulnerabilities, may be unpatched.
+
+        "Signs of exploitation:" 
+            * Unexpected process spawns.
+            * Registry changes or new services created.
+            * Suspicious command-line arguments found in system logs.
+
+    5.  "Installation:"
+        * [Persisten backdoor]      Allows attacker to gain access to a previously compromised system.
+            Methods:
+                [Web Shell]
+                * Web shell installed on the web server. Malicious script written in development programming languages.
+                * Languages such as  ASP, PHP, or JSP. Can be difficult to detect due to simplicity and formatting (.php, .asp, .aspx, .jsp, etc.).
+                
+                [Backdoor]
+                * Installed on victim machine, e.g using Meterpreter.
+                
+                [Modifying Windows services]
+                * MITRE https://attack.mitre.org/techniques/T1543/003/ 
+                * Attacker creates or modifies Windows services to run scripts periodically. Tools like ssc.exe & Reg.
+                * Attacker can masquerade as a legitimate service.
+
+                [Registry run keys & Startup Folders]
+                * Payload will execute on startup
+
+                [Timestomping]
+                * https://attack.mitre.org/techniques/T1070/006/
+                * Avoid detection by forensics, make the malware appear as part of a legitimate software.
+                * Allows for modification of file timestamps.
+
+    
+    6.  "Command & Control:"
+        * After achieving some persisten backdoor, attacker will open C2 channel (command and control).
+        * Allows for remote execution, a C&C server communicates with the malware on infected host.
+        * Infected host will consistently communicate with C2 server, hence BEACONING.
+
+        * Attacker server communicates with victim, allowing full control.
+        * Previously [Internet Relay Chat (IRC)] was the traditional C2 channel.
+        * Not used anymore, malicious IRC traffic is easily detected by modern security solutions.
+
+        "Most common C2 channels:"
+            * [HTTP on port 80, HTTPS on port 443] Naturally blends malicious traffic with legitimate.
+            * Helps avoid firewalling.
+
+            * [DNS] Infected machines make constant DNS requests to a DNS server owned by attacker.
+            * Known as DNS tunneling.
+
+        
+    7.  "Actions on Objectives/ Exfiltration:"
+        * After achieving 1-6, attacker can:
+            * Collect the credentials from users.
+            * Perform privilege escalation (gaining elevated access like domain administrator access from a workstation by exploiting the misconfiguration).
+            * Internal reconnaissance (for example, an attacker gets to interact with internal software to find its vulnerabilities).
+            * Lateral movement through the company's environment.
+            * Collect and exfiltrate sensitive data.
+            * Deleting the backups and shadow copies. Shadow Copy is a Microsoft technology that can create backup copies, snapshots of computer files, or volumes. 
+            * Overwrite or corrupt data.
+
+        
