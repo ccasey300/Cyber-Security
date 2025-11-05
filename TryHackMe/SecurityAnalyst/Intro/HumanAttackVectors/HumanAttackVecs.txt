@@ -1,0 +1,24 @@
+"Human Attack Vectors:"
+    * Easier to target an IT admin than a firewall itself.
+    * Humans can provide a lot of access when compromised.
+    
+    "Attacks on Humans:"
+        * Commonality: manipulate the victim into helping the attacker.
+            => Social Engineering.
+
+        * Attacks are designed to be:
+            [Trustworthy]: The attacker must appear legitimate so the victim trusts them
+            [Emotional]: The attack must trigger feelings like urgency, fear, or curiosity
+
+        * Most common, phishing. When you send a malicious e.g email, redirects to a phony site, steal login credentials.
+
+        [Malware]   Convince victim to download some file, get victim to execute, steal data/ install spyware etc.
+        [DeepFake]  Impersonating a victim's colleagues, family, authority figure in order to manipulate.
+
+        "Mitigations against Social Engineering:"
+            Anti-phishing solution 	        SOC routine becomes easier with a tool that blocks phishing emails before the users even notice
+            Antivirus / EDR solution 	    A reliable antivirus on all corporate hosts is a great measure to prevent humans from running malware
+            "Trust but verify" principle 	Instruct your employees how to detect deepfakes and verify suspicious requests from "CEO" or "IT"
+            Security awareness training 	Teach your employees how to detect phishing and reinforce training through phishing simulations
+
+            

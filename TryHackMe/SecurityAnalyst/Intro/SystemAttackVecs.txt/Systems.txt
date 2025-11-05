@@ -1,0 +1,31 @@
+"System Attack Vectors:"
+    * [System]      a physical server, a virtual machine, or a cloud platform like Microsoft 365.
+    * In most attacks, first goal is to gain access to a system.
+    
+    "How attacks begin:"
+    [Human Led]         Some person downloads malware onto a machine. (RubberDucky, USB containing malware)
+    [Vulnerabilities]   Software vulnerabilities are security flaws, weak passwords are another.
+    [Supply Chain]      Typically applications rely on thousands of libraries. 
+                        Threat actor infects a trusted app, could be devastating for all downstream.
+                        E.g SolarWinds
+
+    "Vulnerabilities:"
+        * Worst case, nobody is aware of the vuln besides the attacker -> Zero Day
+        * When a vulnerability is made public, assigned Common Vulnerabilities and Exposures (CVE) number.
+        * Defenders then rush to update software, attackers try to take advantage of systems w deprecated software.
+        * The answer to a CVE is a patch. Try to survive until it is released:
+                
+            * Restricting access to the system to only trusted IPs
+            * Applying temporary measures provided by the vendor
+            * Blocking known attack patterns on IPS or WAF
+
+    "Misconfigurations:"
+        * Mistake in how the system was set up, likely by IT.
+        * Convenience is the enemy of security. -> Weak passwords
+        * How to respond to potential misconfig?
+            
+            - Penetration Testing: Hire ethical "hackers" who simulate an attack and report on discovered security flaws
+            - Vulnerability Scans: Periodically run tools that can detect default passwords or outdated software
+            - Configuration Audits: Manually review the systems to match best practices like CIS benchmarks
+
+    

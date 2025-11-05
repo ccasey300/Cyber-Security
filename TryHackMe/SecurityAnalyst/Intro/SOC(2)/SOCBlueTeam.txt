@@ -1,0 +1,16 @@
+"SOC Role in Blue Team:"
+    * Blue Team is about defensive security
+    [Roles]
+        - L1 Analysts: Junior members who triage alerts and pass complex cases to L2
+        - L2 Analysts: Experienced members who investigate more advanced attacks
+        - Engineers: Experts in configuring security tools like EDR or SIEM
+        - Manager: A person who manages the whole SOC team
+
+    * If SOC finds a BIG problem, and doesn't have the expertise to solve:
+
+    "Cyber Incident Response Team (CIRT)"
+        * Members have a broad knowledge of threats and do not need to rely on tools like SIEM.
+        * Includes malware analysts, threat hunters, forensics experts, threat intel experts etc.
+        * [MSSP]    a cyber security company providing SOC services
+
+    

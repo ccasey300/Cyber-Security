@@ -15,7 +15,6 @@
 
     "Security Operations Center:"
         * Investigate, monitor, prevent and monitor threats around the clock.
-        rachel is awesome
         [Preparation & Prevention]
             * Gathering intelligence on latest threats, actors and their TTPs (Tactics, Techniques & Procedures)
             * Updating firewall signatures, patching vulnerabilities in existing systems.
