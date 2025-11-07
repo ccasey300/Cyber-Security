@@ -1,0 +1,45 @@
+"SOC L1 Alert Triage:"
+    * Event: Some action that may prompt an alert. Examples include user login, process launch or file download.
+    * System logs the event... These events are transferred to the SIEM security solution. Potentially thousands
+    * If one of these events is suspicious, SIEM creates an alert. Saves manual review.
+    
+    * [SIEM] Security Information and Event Management System. Logs, alerts, events in a centralised platform.
+    * [EDR/NDR] Crowdstrike example. Not as good as SIEM or SOAR.
+    * [SOAR]    Splunk, cortex. Aggregates and centralise alerts from many sec solutions.
+    * [ITSM]    Custom ticket manager, configured as a dedicated solution.
+
+    "SOC Roles:"
+    [SOC L1 analysts:]  Review the alerts, distinguish bad from good, and notify L2 analysts in case of a real threat
+    [SOC L2 analysts:]  Receive the alerts escalated by L1 analysts and perform deeper analysis and remediation
+    [SOC engineers:]  Ensure the alerts contain enough information required for efficient alert triage
+    [SOC manager:]  Track speed and quality of alert triage to ensure that real attacks won't be missed
+
+    "TYPICAL ALERT PROPERTIES:"
+        * [Alert Time]      When the alert was created. Typically triggered a few minutes after the event.
+        * [Alert Name]      Descriptive summary of what happened
+        * [Alert Severity]  Urgency of the alert.
+        * [Alert Status]    If someone is working on it, or if triage is done.
+        * [Alert Verdict]   Explains if threat is real or just noise.
+        * [Alert Assignee]  Analyst who is assigned to it
+        * [Alert Description]   Explains what the alert is about
+        * [Alert Fields]    Added by SOC analyst, comments and values on which the alert triggered
+
+    "Alert Prioritisation:"
+        * Filter alerts, perhaps by whether they are assigned.
+        * Sort by severity.
+        * Sort by time.
+
+    "TRIAGE:"
+        * This is where an analyst reviews the alert.
+        1.  Intitial Actions:
+            - Assign alert to self, move to in progress, familiarise with alert details.
+
+        2.  Investigation:
+            - Use a workbook provided by employer... OR:
+                * Understand who is under threat, like the affected user, hostname, cloud, network, or website
+                * Note the action described in the alert, like whether it was a suspicious login, malware, or phishing
+                * Review surrounding events, looking for suspicious actions shortly after or before the alert
+                * Use threat intelligence platforms or other available resources to verify your thoughts
+
+        3.  Decide whether true positive (malicious) or false positive. Potentially comment/ escalate
+        
