@@ -1,0 +1,14 @@
+"SOC Workbooks and Lookups:"
+    * Identity Inventory: A record of people (staff), machines, servers and details about them like privileges.
+                            -> Sources of identities include: Windows AD, HR systems, SSO providers.
+    * Asset Inventory: List of all computing resources in an IT dept.
+                            -> Sources of assets include SIEM, EDR, AD, MDM solutions (dedicated solution for asset management)
+
+    * SOC Workbook: Structured document that defines workflow required to remediate specific threats.
+
+    
+    1. Enrichment: Use Threat Intelligence and identity inventory to get information about the affected user
+    2. Investigation: Using the gathered data and SIEM logs, make your verdict if the login is expected
+    3. Escalation: Escalate the alert to L2 or communicate the login with the user if necessary
+
+    

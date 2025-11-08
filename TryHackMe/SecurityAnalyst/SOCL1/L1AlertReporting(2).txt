@@ -1,0 +1,31 @@
+"SOC L1 Alert Reporting:"
+    * How to properly report, escalate and communicate about high-risk alerts.
+    * What happens after classification and triaging?
+    * Most alerts are classified as false positives by L1 analysts. L2 handles more threatening ones.
+    
+    1.  Alert Reporting
+        * Documents investigation in detail, not just comments. Important for true positives, include evidence.
+        
+    2.  Alert Escalation
+        * If a true positive requires additional actions or investigation, escalated to L2.
+        * L2 uses previously written alert report.
+
+    3.  Communication
+        
+"Guide on Reporting:"
+    * Provide context. Save time for L2 analysts.
+    * Save findings for the record. Keep all context inside the alert as these are stored indefinitely. (Logs are not)
+    * Improve investigation skills. Boost L1 skillset by simply describing alert.
+
+    ** Recommended to use the 5 W's. Who, what, where, why, when.
+
+
+"Escalation Guide:"
+    * Escalation is done if:
+        - Alert indicates major cyberattack
+        - Remediation required, e.g malware removal, host isolation, password reset.
+        - Communication with customers, law enforcement etc. required.
+        - Don't understand it.
+
+    * Often, all that is required is reassigning alert to the L2 analyst, notifying them.
+    
