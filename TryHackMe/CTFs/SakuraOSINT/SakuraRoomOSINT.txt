@@ -1,0 +1,104 @@
+"Sakura Room
+
+Use a variety of OSINT techniques to solve this room created by the OSINT Dojo. "
+
+1.  Open image given, look at metadata 
+    (https://raw.githubusercontent.com/OsintDojo/public/3f178408909bc1aae7ea2f51126984a8813b0901/sakurapwnedletter.svg)
+
+    [during forensic analysis our admins found an image left behind by the cybercriminals. 
+    Perhaps it contains some clues that could allow us to determine who the attackers were?]
+
+    * First, lets go to a metadata viewer:
+    https://www.metadata2go.com/
+
+        "What username does the attacker go by?"
+            -> SakuraSnowAngelAiko
+
+2.  Recon
+    Attacker has 'reused their username across other social media platforms'
+    Be wary of false positives, expand search to other social media platforms
+
+    * Found a twitter profile with similar username
+    * A post includes a link to another account, @AiKOABE3
+
+        "What is their full name?"
+            -> Aiko Abe
+
+    * Also found a PGP signature, stored in publickey
+    * Need to find email address from this, hint is by using John the Ripper
+
+    * First, use gpg --list-packets .\publickey to inspect the the PGP signature
+    [
+        keyid: ECDD0FD294110450
+        user ID packet: "SakuraSnowAngel83@protonmail.com"
+    ]
+    ...bomboclat that felt good
+
+    Therefore:
+        "What is their email?"
+            -> SakuraSnowAngel83@protonmail.com
+
+    
+3.  UNVEIL
+    Onto us... github account... indicators that the account owner had already begun editing 
+    other platforms may possess built-in functionality to view the history of edits
+    perform a deeper dive into the attacker's Github accoun.. for info that was modified/ deleted
+
+        * We have to examine github, likely previous commits/ history
+        * Looking back to 2021 commits, we find an ETH/miningscript commit
+
+
+        "What cryptocurrency does the attacker own a cryptocurrency wallet for?"
+            -> Ethereum
+
+        ** Noticed an old commit for a mining script, however only shown for a second before disappearing
+        * Ugly soltion: screen record and copy char by char. Screen recording in this folder
+
+        ==>0xa102397dbeeBeFD8cD2F73A89122fCdB53abB6ef.Aiko:paswd@eu1.ethermine.org:4444
+
+        "What is the attacker's cryptocurrency wallet address?"
+            -> 0xa102397dbeeBeFD8cD2F73A89122fCdB53abB6ef
+
+
+        ** For the next question, we are going to examine ETH transactions using Etherscan.io
+        * Looking at transactions, we see one for 23/01/2021 (ETHTransaction.png) from Ethermine
+
+        "What mining pool did the attacker receive payments from on January 23, 2021 UTC?"
+            ->Ethermine
+
+
+        * By examining the account further, we see mention of Tether
+
+        "What other cryptocurrency did the attacker exchange with using their cryptocurrency wallet?"
+            ->Tether
+
+
+4.  TAUNT
+    cybercriminal is fully aware that we are gathering information about them after their attack...
+    Twitter account... sent message taunting us... maybe this gives more info
+    
+    Need to go to dark web and other platforms to asnwer questions...
+
+    * Msg came from @aikoabe3
+
+    * Straightforward post following reveals below username:
+
+        "What is the attacker's current Twitter handle?"
+            ->SakuraLoverAiko
+
+
+        * Discovering BSSID:
+        * We find two posts detailing long strings of chars related to APs
+        1.  0a5c6e136a98a60b8a21643ce8c15a74
+        2.  b2b37b3c106eb3f86e2340a3050968e2
+
+        * 32 bits, GPT suggests this is likely a MD5 hash
+        * Assumption: This is a hashed MAC
+
+        * However, Twitter account hints at a dark web site called DEEPPASTE
+        * Unfortunately this website is down, couldn't find it on waybackmachine, other users experiencing same problem
+
+       
+
+        "What is the BSSID for the attacker's Home WiFi?"
+        [84:AF:EC:34:FC:F8]

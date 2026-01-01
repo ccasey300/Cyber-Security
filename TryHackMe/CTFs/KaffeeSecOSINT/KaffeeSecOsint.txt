@@ -1,0 +1,49 @@
+"KaffeeSec SoMeSint"
+[Brief]
+    social media analysis and forensics... google dorking, website archiving, social media enumeration/analysis, and the basic usage of OSINT 
+    Flag format is ks{ANS}
+
+[Background]
+    * Aleks Juulut, a private eye based out of Greenland (me)
+    * hired by a mysterious person under the moniker "H" to investigate a suspected cheater, named Thomas Straussman. 
+        * his wife, Francesca Hodgerint... he's been acting suspicious lately,
+
+    * investigate him and report back anything you find. 
+
+[Task 2]
+    A.  Who hired you?
+        ks{H}
+    
+    B.  Who are you investigating?
+        ks{Thomas Straussman}
+
+[Task 3]
+    * His online alias is "tstraussman"
+    * He has a Twitter account
+    * He has a Reddit account
+
+    1.  What is Thomas' favorite holiday?
+        {Christmas}
+
+    2.  What is Thomas' birth date?
+        * Made a birthday post on 20 Dec 2020, 30 years old
+        {12-20-1990}
+
+    3.  What is Thomas' fiancee's Twitter handle?
+        {@FHodgelink}
+
+    4.  What is Thomas' background picture of?
+        {Buddha}
+
+
+[Task 4]
+
+    * First, need to download spiderfoot, automated python OSINT tool
+    * Downloaded tar.gz, extracted it to this folder, ran pip3 install -r requirements.txt
+    * Issue, SF doesn't support python 3.13, had to install 3.11 and create venv
+    * py -3.11 -m venv venv (creates venv)
+    * venv\Scripts\activate (activates venv) 
+
+    * Ran tool with python3 sf.py -l 127.0.0.1:5001
+
+    1.  
